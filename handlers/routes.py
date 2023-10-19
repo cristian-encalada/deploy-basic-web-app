@@ -12,7 +12,7 @@ api_prefix = '/api/v1/'
 
 def configure_routes(app):
     @app.route(api_prefix + '<type_operations>/', methods=['GET'], strict_slashes=False)
-    @swag_from('documentation/rent/get_all.yml', methods=['GET'])
+    @swag_from('documentation/rent/api_get_all.yml', methods=['GET'])
     def api_get_all(type_operations):
         RENTS_PER_PAGE = 10
 
@@ -36,8 +36,8 @@ def configure_routes(app):
 
         return jsonify(response)
 
-    @app.route(api_prefix + '<type_operations>/', methods=['GET'], strict_slashes=False)
-    @swag_from('documentation/rent/filtro.yml', methods=['GET'])
+    @app.route(api_prefix + '<type_operations>/inmuebles', methods=['GET'], strict_slashes=False)
+    @swag_from('documentation/rent/api_get_rent.yml', methods=['GET'])
     def api_get_rent(type_operations):
         RENTS_PER_PAGE = 10
 
